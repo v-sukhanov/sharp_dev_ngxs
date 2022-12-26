@@ -1,0 +1,44 @@
+<div>
+	<div>
+		<span class="title">
+			To do
+		</span>
+	</div>
+
+	<div class="task-container" *ngFor="let item of tasks$ | async">
+		<div class="task__title">
+			{{item.name}}
+		</div>
+		<div class="task__description">
+			{{item.description}}
+		</div>
+		<div class="task__checkbox">
+			<mat-checkbox [checked]="item.done" (change)="doneChange(item)" class="example-margin">Done</mat-checkbox>
+		</div>
+	</div>
+	<div class="task-container">
+		<div>
+			<span>
+				New Task
+			</span>
+		</div>
+		<div>
+			<mat-form-field class="example-full-width">
+				<mat-label>Name</mat-label>
+				<input name="taskName" [(ngModel)]="newTaskName" matInput>
+			</mat-form-field>
+		</div>
+		<div>
+			<mat-form-field class="example-full-width">
+				<mat-label>Task</mat-label>
+				<input name="task" [(ngModel)]="newTaskDescription" matInput>
+			</mat-form-field>
+		</div>
+<!--		<div>-->
+<!--&lt;!&ndash;			<mat-checkbox class="example-margin">Check me!</mat-checkbox>&ndash;&gt;-->
+<!--		</div>-->
+		<div>
+			<button (click)="createNewTask()" mat-raised-button color="primary">Create</button>
+		</div>
+	</div>
+</div>

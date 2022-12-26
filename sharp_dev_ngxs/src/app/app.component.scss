@@ -1,0 +1,16 @@
+
+.container {
+	display: flex;
+	justify-content: center;
+	min-height: 100vh;
+	box-sizing: border-box;
+}
+
+.card {
+	margin-top: 50px;
+	width: 900px;
+	//min-height: 700px;
+	//border: 1px solid rgba(128, 128, 128, 0.4);
+	//box-shadow: 0 15px 15px grey;
+	//border-radius: 5px;
+}

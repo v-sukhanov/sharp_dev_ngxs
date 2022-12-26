@@ -1,0 +1,13 @@
+
+
+.container {
+	padding: 25px;
+	display: flex;
+	flex-direction: row;
+	app-todo-left {
+		width: 50%;
+	}
+	app-todo-right {
+		width: 50%;
+	}
+}
