@@ -1,6 +1,6 @@
 import { AfterViewInit, Component } from '@angular/core';
 import { Select, Store } from '@ngxs/store';
-import { AddTaskAction, ChangeTaskAction } from '../../../ngxs/task/task.actions';
+import { AddTaskAction, ChangeTaskAction, DeleteTaskAction } from '../../../ngxs/task/task.actions';
 import { ITask, TaskState } from '../../../ngxs/task/task.state';
 import { Observable } from 'rxjs';
 
@@ -34,5 +34,9 @@ export class TodoLeftComponent{
       ...item,
       done: true
     }))
+  }
+
+  deleteTask(item: ITask) {
+    this._store.dispatch(new DeleteTaskAction(item))
   }
 }

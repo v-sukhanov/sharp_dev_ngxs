@@ -1,7 +1,7 @@
 import { Action, Selector, State, StateContext } from '@ngxs/store';
 import { ChangeUserDataActions } from '../user/user.actions';
 import { IUserStateModel } from '../user/user.state';
-import { AddTaskAction, ChangeTaskAction } from './task.actions';
+import { AddTaskAction, ChangeTaskAction, DeleteTaskAction } from './task.actions';
 import { Injectable } from '@angular/core';
 
 
@@ -59,6 +59,15 @@ export class TaskState {
 				]
 			})
 		}
+	}
 
+
+	@Action(DeleteTaskAction)
+	deleteTask(context: StateContext<ITaskModel>, action: DeleteTaskAction) {
+			context.patchState({
+				tasks: [
+					...context.getState().tasks.filter(x => x.name !== action.payload.name),
+				]
+			})
 	}
 }
